@@ -1,31 +1,51 @@
-/**
- * Enum representing different levels of permissions within the system.
- */
-export enum Permissions {
-    /** 
-   * Represents full administrative access, allowing all operations.
-   */
-    ADMIN = "ADMIN",
-    /** 
-   * Represents read-only access, restricting operations to viewing only.
-   */
-    READ_ONLY = "READ_ONLY",
+const reviewTotalDisplay = document.querySelector("#reviews");
+const returningUserDisplay = document.querySelector("#returning-user");
+const userNameDisplay = document.querySelector("#user");
+import { LoyaltyUser } from "./enums";
+
+export function showReviewTotal(
+  value: number,
+  reviewer: string,
+  isLoyalty: LoyaltyUser
+) {
+  const iconDisplay = LoyaltyUser.GOLD_USER ? "⭐" : "";
+  reviewTotalDisplay.innerHTML =
+    value.toString() +
+    "Review" +
+    makeMultiple(value) +
+    "| last reviewed by " +
+    reviewer +
+    " " +
+    iconDisplay;
+}
+
+export function populateUser(isReturning: boolean, userName: string) {
+  if (isReturning == true) {
+    returningUserDisplay.innerHTML = "back";
   }
-  
-  /**
- * Enum representing different tiers of loyalty users within the system.
- */
-  export enum LoyaltyUser {
-    /** 
-   * Represents a user with the highest loyalty tier: Gold.
-   */
-    GOLD_USER = "GOLD_USER",
-    /** 
-   * Represents a user with the second-highest loyalty tier: Silver.
-   */
-    SILVER_USER = "SILVER_USER",
-    /** 
-   * Represents a user with the base loyalty tier: Bronze.
-   */
-    BRONZE_USER = "BRONZE_USER",
-  }
+  userNameDisplay.innerHTML = userName;
+}
+
+export function makeMultiple(value: number): string {
+  if (value > 1 || value == 0) {
+    return "s";
+  } else return "";
+}
+
+// Grabbing the top reviews from array
+export function getTopTwoReviews(
+  reviews: {
+    name: string;
+    stars: number;
+    loyalyuser: LoyaltyUser;
+    date: string;
+  }[]
+): {
+  name: string;
+  stars: number;
+  loyalyuser: LoyaltyUser;
+  date: string;
+}[] {
+  const sortedReviews = reviews.sort((a, b) => b.stars - a.stars);
+  return sortedReviews.slice(0, 2);
+}
