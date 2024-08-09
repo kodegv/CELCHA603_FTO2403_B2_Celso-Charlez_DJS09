@@ -114,3 +114,7 @@ const properties: Property[] = [
     },
   ];
   
+// functions
+showReviewTotal(1, reviews[0].name, reviews[0].loyaltyUser);
+
+populateUser(you.isReturning, you.firstName);
