@@ -152,3 +152,19 @@ function addReviews(
     container.removeChild(button);
   }
 }
+
+// footer
+let currentLocation: [string, string, number] = ["London", "11.03", 17];
+footer.innerHTML =
+  currentLocation[0] +
+  " " +
+  currentLocation[1] +
+  " " +
+  currentLocation[2] +
+  "°";
+
+// display image before reviews
+const mainImageContainer = document.querySelector(".main-image");
+const image = document.createElement("img");
+image.setAttribute("src", yourMainProperty.src);
+mainImageContainer.appendChild(image);
