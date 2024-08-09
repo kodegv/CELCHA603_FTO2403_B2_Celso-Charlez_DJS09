@@ -13,6 +13,7 @@ let isOpen: boolean;
 
 const reviewTotalDisplay = document.querySelector("#reviews")
 
+// Here are the reviews
 const reviews: Review[] = [
     {
         name: 'Sheia',
@@ -33,3 +34,12 @@ const reviews: Review[] = [
         date: '27-03-2021'
     },
 ];
+
+const you = {
+    firstName: "Bobby",
+    lastName: "Brown",
+    permissions: Permissions.ADMIN,
+    isReturning: true,
+    age: 35,
+    stayedAt: ["florida-home", "oman-flat", "tokyo-bungalow"],
+  };
