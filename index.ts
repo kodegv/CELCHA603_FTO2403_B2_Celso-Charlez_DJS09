@@ -9,6 +9,8 @@ import Review from "./interfaces";
 const propertyContainer = document.querySelector(".properties");
 const footer = document.querySelector(".footer");
 
+let isOpen: boolean;
+
 const reviewTotalDisplay = document.querySelector("#reviews")
 
 const reviews: Review[] = [
