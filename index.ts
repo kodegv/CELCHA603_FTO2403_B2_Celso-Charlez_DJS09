@@ -2,9 +2,16 @@
 // Write a function that will only accept numbers and attend to 
 // all TypeScript weakness flags.
 // : number
-const reviewTotalDisplay = document.querySelector('#reviews')
+import { showReviewTotal, populateUser, getTopTwoReviews } from "./utils";
+import { Permissions, LoyaltyUser } from "./enums";
+import { Price, Country } from "./types";
+import Review from "./interfaces";
+const propertyContainer = document.querySelector(".properties");
+const footer = document.querySelector(".footer");
 
-const reviews = [
+const reviewTotalDisplay = document.querySelector("#reviews")
+
+const reviews: Review[] = [
     {
         name: 'Sheia',
         stars: 5,
@@ -23,4 +30,4 @@ const reviews = [
         loyaltyUser: true,
         date: '27-03-2021'
     },
-]
+];
